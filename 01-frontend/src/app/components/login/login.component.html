@@ -1,0 +1,18 @@
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+        <h3>Login Page</h3>
+        <form [formGroup]="loginForm" >
+            <div class="form-group">
+              <label for="loginUsername">Email address</label>
+              <input  type="email" formControlName="email" name="username" required class="form-control" id="loginUsername" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" formControlName="password"  name="password" required class="form-control" id="loginPassword">
+            </div>
+            <button type="submit" (click)="login()" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+            <a routerLink="/signup" class="primary-btn">signup</a>
+          </form>
+    </div>
+</div>

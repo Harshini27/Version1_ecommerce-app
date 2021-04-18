@@ -52,7 +52,10 @@ public class UserController {
 	public ResponseEntity<User> Userlogin(@RequestBody User user) {
 
 		User loggeduser = userService.Userlogin(user);
-		ResponseEntity<User> res =new ResponseEntity<User>(loggeduser,HttpStatus.ACCEPTED);
+		if(loggeduser == null) {
+			res =new ResponseEntity<User>(loggeduser,HttpStatus.BAD_REQUEST);
+		}
+		res =new ResponseEntity<User>(loggeduser,HttpStatus.ACCEPTED);
 		System.out.println(res);
 		System.out.println("Login success");
 		return res;

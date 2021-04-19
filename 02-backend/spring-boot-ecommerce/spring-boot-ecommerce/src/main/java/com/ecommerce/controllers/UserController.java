@@ -45,12 +45,11 @@ public class UserController {
 		ResponseEntity<User> res = ResponseEntity.status(HttpStatus.CREATED).body(saveduser);
 		System.out.println(res);
 		return res;
-		//return "SingUp success";
-		//return userService.createUser(user);
-	}
+
+      }
 	@PostMapping("/user/login")
 	public ResponseEntity<User> Userlogin(@RequestBody User user) {
-                ResponseEntity<User> res;
+		ResponseEntity<User> res;
 		User loggeduser = userService.Userlogin(user);
 		if(loggeduser == null) {
 			res =new ResponseEntity<User>(loggeduser,HttpStatus.BAD_REQUEST);

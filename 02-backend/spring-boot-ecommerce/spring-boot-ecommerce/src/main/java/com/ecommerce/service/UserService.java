@@ -20,20 +20,23 @@ public class UserService {
 	
 	public User createUser(User user)  {
 		User users = userRepository.findByEmail(user.getEmail());
-		if(users.getEmail().equals(user.getEmail()))
-		{
-			return null;
-		}
-		else
-		{
-			return userRepository.save(user);
-		}
+        System.out.println(users);
+        if(users==null)
+        {
+        	return userRepository.save(user);
+        }
+        else
+        {
+        	return null;
+        }
+//		return userRepository.save(user);
+
 	}
 	
 	public User Userlogin(User user) {
 		  User users = userRepository.findByEmail(user.getEmail());
-		  System.out.println(users.getEmail());
-		  System.out.println(users.getPassword());
+		 // System.out.println(users.getEmail());
+		  //System.out.println(users.getPassword());
 		  if(users==null)
 		  {
 			  return null;

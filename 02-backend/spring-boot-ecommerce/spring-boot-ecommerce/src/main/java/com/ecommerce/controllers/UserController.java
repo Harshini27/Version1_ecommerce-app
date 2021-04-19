@@ -50,7 +50,7 @@ public class UserController {
 	}
 	@PostMapping("/user/login")
 	public ResponseEntity<User> Userlogin(@RequestBody User user) {
-
+                ResponseEntity<User> res;
 		User loggeduser = userService.Userlogin(user);
 		if(loggeduser == null) {
 			res =new ResponseEntity<User>(loggeduser,HttpStatus.BAD_REQUEST);

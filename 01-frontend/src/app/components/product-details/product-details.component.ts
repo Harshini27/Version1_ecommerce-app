@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "src/app/common/product";
 import { ProductService } from "src/app/services/product.service";
 
@@ -12,14 +12,17 @@ export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
   username: any;
+  emailstore:any;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,public router:Router) { }
 
   ngOnInit(): void {
+    this.emailstore = localStorage.getItem("email");
     this.route.paramMap.subscribe(() => {
       this.handleProductDetails();
       this.username = localStorage.getItem("username");
+      
     })
   }
 
@@ -33,6 +36,11 @@ export class ProductDetailsComponent implements OnInit {
         this.product = data;
       }
     )
+  }
+    logout(){
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+    
   }
 
 }

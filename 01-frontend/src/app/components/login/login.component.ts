@@ -36,9 +36,9 @@ export class LoginComponent implements OnInit {
       console.log(this.items.email);
 
           alert("login successful");
-          this.router.navigate(["/home"]);
+          this.router.navigate(["/products"]);
         }
-        if(data==null){
+        if(data==''){
           alert("username or password is wrong");
         }
     });

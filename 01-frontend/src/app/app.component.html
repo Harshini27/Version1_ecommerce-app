@@ -7,26 +7,9 @@
         <img src="assets/images/logo.jpg" alt="E-commerce" class="img-responsive">
       </a>
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <ul class="list-unstyled navbar-list">
-          <li style="font-style:bold;">Product Category</li>
-          <hr>
-          <li>
-            <a href="#">Books</a>
-          </li>
-          <li>
-            <a href="#">Coffee Mugs</a>
-          </li>
-          <li>
-            <a href="#">Mouse Pads</a>
-          </li>
-          <li>
-            <a href="#">Luggage Tags</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    
+    <app-product-category-menu></app-product-category-menu>
+
   </aside>
   <!-- END MENU SIDEBAR-->
 
@@ -36,7 +19,7 @@
 
 
     <!-- HEADER DESKTOP-->
-    <header class="header-desktop">
+    <!-- <header class="header-desktop">
       <div class="section-content section-content-p30">
         <div class="container-fluid">
           <div class="header-wrap">
@@ -47,7 +30,8 @@
                 Search
               </button>
 
-              <a routerLink="/login" class="primary-btn">login/signup</a>
+              <a routerLink="/login" class="primary-btn" >login/signup</a>
+              <button (click)="logout()" class="au-btn-submit">logout</button>
             </form>
 
             <div class="cart-area d-n">
@@ -60,8 +44,9 @@
           <div class="account-wrap"></div>
         </div>
       </div>
-    </header>
-
+    </header> -->
+    
+   
 
     <!-- END HEADER DESKTOP-->
 

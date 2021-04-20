@@ -1,35 +1,34 @@
 <header class="header-desktop">
-    <div class="section-content section-content-p30">
-      <div class="container-fluid">
-        <div class="header-wrap">
-          <form class="form-header" onsubmit="return false;" method="GET">
-            <input class="au-input au-input-xl" type="text" name="search"
-              placeholder="Search for data ..." />
-            <button class="au-btn-submit" type="submit">
-              Search
-            </button>
-            <p>welcome {{this.username}}</p>
-            <a routerLink="/products" class="primary-btn">logout</a>
-          </form>
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="header-wrap">
+        <form class="form-header" onsubmit="return false;" method="GET">
+          <input class="au-input au-input-xl" type="text" name="search"
+            placeholder="Search for data ..." />
+          <button class="au-btn-submit" type="submit">
+            Search
+          </button>
 
-          <div class="cart-area d-n">
-            <a href="shopping-details.html">
-              <div class="total">0 <span> 0</span> </div> <i class="fa fa-shopping-cart"
-                aria-hidden="true"></i>
-            </a>
-          </div>
+          <a routerLink="/login" class="primary-btn" *ngIf="!emailstore">login/signup</a>
+          <button (click)="logout()" class="au-btn-submit" *ngIf="emailstore">logout</button>
+        </form>
+
+        <div class="cart-area d-n">
+          <a href="shopping-details.html">
+            <div class="total">0 <span> 0</span> </div> <i class="fa fa-shopping-cart"
+              aria-hidden="true"></i>
+          </a>
         </div>
-        <div class="account-wrap"></div>
       </div>
+      <div class="account-wrap"></div>
     </div>
-  </header>
-
-
+  </div>
+</header>
 <div class="detail-section">
     <div class="container-fluid">
 
         <h3>{{ product.name }}</h3>
-        <!-- <img src="{{ product.imageUrl }}" class="detail-img"> -->
+        <img src="{{ product.imageUrl }}" class="img-responsive" alt="image">
         <div class="price">{{ product.unitprice | currency:'INR' }}</div>
         <a href="#" class="primary-btn">Add to cart</a>
 

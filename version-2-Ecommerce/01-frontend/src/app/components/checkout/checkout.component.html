@@ -1,0 +1,19 @@
+<div class="main-content ">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <form  [formGroup]="checkoutFormGroup"(ngSubmit)="onSubmit()">
+                <div class="form-area">
+                    <h3>Review your order</h3>
+                    <p>Total Quantity: {{totalQuantity}}</p>
+                    <p>Total Price:{{totalPrice| currency:'INR'}}</p>
+
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info">Purchase</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

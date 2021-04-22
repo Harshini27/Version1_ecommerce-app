@@ -4,7 +4,7 @@ export class Product {
     name:string;
     description:string;
     unitprice:number;
-    imageurl:string;
+    imageUrl:string;
     active:boolean;
     unitsInStock:number;
     dateCreated:Date;

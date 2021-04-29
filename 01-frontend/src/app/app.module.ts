@@ -11,14 +11,27 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { HomeComponent } from './components/home/home.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
 
 const routes: Routes = [
+  {path: 'addCategory', component: AddCategoryComponent},
+  {path: 'addProduct', component: AddProductComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'adminlogin', component: AdminLoginComponent},
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
+  {path: 'categories/:id', component: ProductListComponent},
+  {path: 'categories', component: ProductListComponent},
   {path:'signup',component :SignupComponent },
   {path:'login',component :LoginComponent },
   {path: 'search/:keyword', component: ProductListComponent},
-  {path: 'categories/:id', component: ProductListComponent},
-  {path: 'categories', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},
   {path: '**', redirectTo: '/products', pathMatch: 'full'},
@@ -31,7 +44,14 @@ const routes: Routes = [
     ProductDetailsComponent,
     LoginComponent,
     SignupComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    CartStatusComponent,
+    CartDetailsComponent,
+    CheckoutComponent,
+    AdminComponent,
+    AdminLoginComponent,
+    AddProductComponent,
+    AddCategoryComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

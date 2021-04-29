@@ -2,3 +2,13 @@
     margin-top: 100px;
     margin-bottom: 90px;
 }
+.primary-btn
+{
+    border-radius: 50px;
+}
+.display-name{
+    font-size: large;
+    color: white;
+    margin-top: 10px;;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}

@@ -1,0 +1,75 @@
+<div class="row">
+<form [formGroup]="addprod" class="form-horizontal hr" method="POST" action="#">
+    <h2>Add product</h2>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="sku">sku :</label>
+        <div class="col-sm-8">
+          <input type="text" name="sku" required formControlName="sku" class="form-control"  
+              placeholder="Enter sku" />
+          <small *ngIf="addprod.get('sku').dirty && addprod.get('sku').invalid" class="form-text text-danger">sku is required</small>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="name">Name :</label>
+      <div class="col-sm-8">
+          <input type="text" name="name" required formControlName="name" class="form-control"
+              placeholder="Enter product name" />
+          <small *ngIf="addprod.get('name').dirty && addprod.get('name').invalid"
+              class="form-text text-danger">Enter valid Name</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="description">Description :</label>
+      <div class="col-sm-8">
+          <input type="text" name="description" required formControlName="description" class="form-control"
+              placeholder="Enter the description " />
+          <small *ngIf="addprod.get('description').dirty && addprod.get('description').invalid"
+              class="form-text text-danger">Enter description</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="unitPrice">Unit_Price :</label>
+      <div class="col-sm-8">
+          <input type="number" name="unitPrice" required formControlName="unitPrice" class="form-control"
+              placeholder="Enter the unitPrice " />
+          <small *ngIf="addprod.get('unitPrice').dirty && addprod.get('unitPrice').invalid"
+              class="form-text text-danger">Enter Unit_Price</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="imageUrl">Image_url :</label>
+      <div class="col-sm-8">
+          <input type="text" name="imageUrl" required formControlName="imageUrl" class="form-control"
+              placeholder="Enter the imageUrl " />
+          <small *ngIf="addprod.get('imageUrl').dirty && addprod.get('imageUrl').invalid"
+              class="form-text text-danger">Enter Image_url</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="unitsInStock">Units_in_stock :</label>
+      <div class="col-sm-8">
+          <input type="number" name="unitsInStock" required formControlName="unitsInStock" class="form-control"
+              placeholder="Enter the unitsInStock " />
+          <small *ngIf="addprod.get('unitsInStock').dirty && addprod.get('unitsInStock').invalid"
+              class="form-text text-danger">Enter Units_in_stock</small>
+      </div>
+    </div>
+
+  
+  <div class="form-group row">
+    <label class="control-lable col-sm-4" for="categoryName">Category_name :</label>
+    <div class="col-sm-8">
+        <input type="text" name="categoryName" required formControlName="categoryName" class="form-control"
+            placeholder="Enter the categoryName " />
+        <small *ngIf="addprod.get('categoryName').dirty && addprod.get('categoryName').invalid"
+            class="form-text text-danger">Enter Category_name</small>
+    </div>
+  </div>
+  <div class="form-group ">
+    
+        <button  (click)="AddProduct()"  class="btn btn-primary" [disabled]="addprod.invalid">Add Product</button>
+
+</div>
+
+</form>
+</div>

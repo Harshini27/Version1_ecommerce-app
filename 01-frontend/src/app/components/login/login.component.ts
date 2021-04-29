@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   userdetails : any;
   items :any;
+  emailstore:any;
   constructor(private loginservice : LoginService,private router : Router) { 
   }
 

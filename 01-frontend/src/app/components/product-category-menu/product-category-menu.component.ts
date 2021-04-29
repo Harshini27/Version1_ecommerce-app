@@ -11,10 +11,12 @@ export class ProductCategoryMenuComponent implements OnInit {
 
   productCategories: ProductCategory[];
   emailstore:any;
+  namestore:any;
   constructor(private productCategoryService: ProductService,public router : Router) { }
 
   ngOnInit() {
     this.emailstore = localStorage.getItem("email");
+    this.namestore=localStorage.getItem("username");
     this.productCategoryService.getProductCategories().subscribe(
       data => {
         

@@ -1,3 +1,33 @@
+<header class="header-desktop">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+        <div class="header-wrap">
+          <form class="form-header" onsubmit="return false;" method="GET">
+            <!-- <input class="au-input au-input-xl" type="text" name="search"
+              placeholder="Search for data ..." />
+            <button class="au-btn-submit" type="submit">
+              Search
+            </button> -->
+  
+            <a routerLink="/login" class="primary-btn" >login/signup</a>
+            <!-- <button (click)="logout()" class="au-btn-submit">logout</button> -->
+          </form>
+  
+          <div class="cart-area d-n">
+            <a routerLink="/login">
+              <div class="total">0 <span> 0</span> </div><i class="fa fa-shopping-cart"
+              aria-hidden="false"></i>
+            </a>
+          </div>
+        </div>
+        <div class="account-wrap"></div>
+      </div>
+    </div>
+  </header>
+
+
+
+
 <div class="container">
     <div class="row register">
        
@@ -29,12 +59,12 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="control-lable col-sm-4" for="email">Email-id:</label>
+                    <label class="control-lable col-sm-4" for="email">Email Id:</label>
                     <div class="col-sm-8">
                         <input type="email" name="email" formControlName="email" class="form-control"
                             placeholder="Enter your email-id" />
                         <small *ngIf="signForm.get('email').dirty && signForm.get('email').invalid"
-                            class="form-text text-danger">Enter valid email-id</small>
+                            class="form-text text-danger">Enter valid email,should not contain any uppercase character</small>
                     </div>
                 </div>
 
@@ -44,17 +74,17 @@
                         <input type="password" name="psw" formControlName="password" class="form-control"
                             placeholder="Enter password" />
                         <small *ngIf="signForm.get('password').dirty && signForm.get('password').invalid"
-                            class="form-text text-danger">Password must content one uppercase, one special character and 6-10 character</small>
+                            class="form-text text-danger">Password must contain one uppercase, one special character ,min length should be 6</small>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="control-lable col-sm-4" for="mobile">Mobile no.:</label>
                     <div class="col-sm-8">
-                        <input type="number" name="mobile" formControlName="mobile" class="form-control"
+                        <input type="tel" name="mobile" formControlName="mobile" class="form-control"
                             placeholder="Enter 10 digit mobile number"  />
                         <small *ngIf="signForm.get('mobile').dirty && signForm.get('mobile').invalid"
-                            class="form-text text-danger">Enter 10 digit mobile number only</small>
+                            class="form-text text-danger">Number should start with 7,8 or 9 and should contain 10 digits </small>
                     </div>
                 </div>
 
@@ -71,12 +101,9 @@
                
                 <div class="form-group row">
                     <label class="control-lable col-sm-4" for="gender">Gender:</label>
-                    <div class="col-sm-2">
-                        <select  class="control-lable col-sm-8" formControlName="gender">
-                             <!-- <option >Gender</option> -->
-                            <option >Male</option>
-                            <option >Female</option>
-                        </select>
+                    <div class="col-sm-8">
+                    <input type="radio" value="male" name="gender" formControlName="gender">male
+                        <input type="radio" value="female" name="gender" formControlName="gender">female          
                         <small *ngIf="signForm.get('gender').dirty && signForm.get('gender').invalid"
                             class="form-text text-danger">choose gender</small>
                     </div>

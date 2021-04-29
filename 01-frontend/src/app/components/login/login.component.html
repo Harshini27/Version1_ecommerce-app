@@ -3,20 +3,20 @@
     <div class="container-fluid">
       <div class="header-wrap">
         <form class="form-header" onsubmit="return false;" method="GET">
-          <input class="au-input au-input-xl" type="text" name="search"
+          <!-- <input class="au-input au-input-xl" type="text" name="search"
             placeholder="Search for data ..." />
           <button class="au-btn-submit" type="submit">
             Search
-          </button>
+          </button> -->
 
           <a routerLink="/login" class="primary-btn" >login/signup</a>
           <!-- <button (click)="logout()" class="au-btn-submit">logout</button> -->
         </form>
 
         <div class="cart-area d-n">
-          <a href="shopping-details.html">
+          <a routerLink="/login">
             <div class="total">0 <span> 0</span> </div> <i class="fa fa-shopping-cart"
-              aria-hidden="true"></i>
+              aria-hidden="false"></i>
           </a>
         </div>
       </div>
@@ -31,6 +31,10 @@
             <div class="form-group">
               <label for="loginUsername">Email address</label>
               <input  type="email" formControlName="email" name="username" required class="form-control" id="loginUsername" aria-describedby="emailHelp">
+              <small *ngIf="loginForm.get('email').dirty && loginForm.get('email').invalid"
+                            class="form-text text-danger">Enter valid email,should not contain any uppercase character</small>
+
+
             </div>
             <div class="form-group">
               <label for="loginPassword">Password</label>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { CartItem } from "src/app/common/cart-item";
 import { Product } from "src/app/common/product";
 import { ProductService } from "src/app/services/product.service";
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,17 +13,18 @@ import { ProductService } from "src/app/services/product.service";
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
-  username: any;
+  products : Product[];
+  namestore: any;
   emailstore:any;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute,public router:Router) { }
+              private route: ActivatedRoute,public router:Router,private cartService: CartService) { }
 
   ngOnInit(): void {
     this.emailstore = localStorage.getItem("email");
     this.route.paramMap.subscribe(() => {
       this.handleProductDetails();
-      this.username = localStorage.getItem("username");
+      this.namestore = localStorage.getItem("username");
       
     })
   }
@@ -37,10 +40,16 @@ export class ProductDetailsComponent implements OnInit {
       }
     )
   }
-    logout(){
+  logout(){
     localStorage.clear();
     this.router.navigate(["/login"]);
     
   }
+  addToCart(theProduct: Product){
+    console.log('Adding to cart: ${theProduct.name},${theProduct.unitPrice}');
+    const theCartItem=new CartItem(theProduct);
+    this.cartService.addToCart(theCartItem);
+  }
+   
 
 }

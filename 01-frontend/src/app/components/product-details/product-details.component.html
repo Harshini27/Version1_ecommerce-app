@@ -3,22 +3,20 @@
     <div class="container-fluid">
       <div class="header-wrap">
         <form class="form-header" onsubmit="return false;" method="GET">
-          <input class="au-input au-input-xl" type="text" name="search"
+          <!-- <input class="au-input au-input-xl" type="text" name="search"
             placeholder="Search for data ..." />
           <button class="au-btn-submit" type="submit">
             Search
-          </button>
+          </button> -->
 
-          <a routerLink="/login" class="primary-btn" *ngIf="!emailstore">login/signup</a>
+          <a routerLink="/login" class="primary-btn" *ngIf="!emailstore">login/signup</a>&nbsp;&nbsp; &nbsp;&nbsp; 
+          &nbsp;&nbsp;&nbsp;&nbsp;
+            <a routerLink="/adminlogin" class="primary-btn" *ngIf="!emailstore">Admin</a>
+          <p class="display-name">Welcome {{namestore}}!</p>
+         &nbsp;&nbsp;&nbsp;&nbsp;   
           <button (click)="logout()" class="au-btn-submit" *ngIf="emailstore">logout</button>
         </form>
-
-        <div class="cart-area d-n">
-          <a href="shopping-details.html">
-            <div class="total">0 <span> 0</span> </div> <i class="fa fa-shopping-cart"
-              aria-hidden="true"></i>
-          </a>
-        </div>
+        <app-cart-status></app-cart-status>
       </div>
       <div class="account-wrap"></div>
     </div>
@@ -28,9 +26,10 @@
     <div class="container-fluid">
 
         <h3>{{ product.name }}</h3>
-        <img src="{{ product.imageUrl }}" class="img-responsive" alt="image">
-        <div class="price">{{ product.unitprice | currency:'INR' }}</div>
-        <a href="#" class="primary-btn">Add to cart</a>
+        <img src="{{ product.imageUrl }}" class="detail-img" alt="image">
+        <div class="price">{{ product.unitPrice | currency:'INR' }}</div>
+        <a routerLink="/login"  class="primary-btn" *ngIf="!emailstore">Add to cart</a>
+        <button (click)="addToCart(product)" class="au-btn-submit" *ngIf="emailstore">Add to cart</button>
 
         <hr>
         <h4>Description</h4>

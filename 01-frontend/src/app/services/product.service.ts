@@ -12,7 +12,7 @@ import { ProductCategory } from '../common/product-category';
 })
 export class ProductService {
   private baseUrl='http://localhost:8080/api/products';
-  private categoryUrl = 'http://localhost:8080/categories';
+  // private categoryUrl = 'http://localhost:8080/categories';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,18 +21,32 @@ export class ProductService {
     return this.httpClient.get<Product>(productUrl);
     
   }
-  getCategory(theCategoryId:number):Observable<ProductCategory>{
-    const productCategoryUrl = `${this.categoryUrl}/${theCategoryId}`;
-    return this.httpClient.get<ProductCategory>(productCategoryUrl);
-  }
+  // getCategory(theCategoryId:number):Observable<ProductCategory>{
+  //   const productCategoryUrl = `${this.categoryUrl}/${theCategoryId}`;
+  //   return this.httpClient.get<ProductCategory>(productCategoryUrl);
+  // }
 
-  getProductList() : Observable<Product[]>{
+  getProducts() : Observable<Product[]>{
+    // const productCategoryUrl = `${this.categoryUrl}/${theCategoryId}`;
     return this.httpClient.get<Product[]>(this.baseUrl);
   }
+  getProductList(theCategoryId:number) : Observable<Product[]>{
+    if(theCategoryId!=null)
+    {
+        const productCategoryUrl = `${this.baseUrl}/categories/${theCategoryId}`;
+        return this.httpClient.get<Product[]>(productCategoryUrl);
+
+    }
+    else{
+          return this.httpClient.get<Product[]>(this.baseUrl);
+           
+    }
+  }
+
 
   getProductCategories(): Observable<ProductCategory[]> {
-
-    return this.httpClient.get<ProductCategory[]>(this.categoryUrl);
+   const categoryUrl=`${this.baseUrl}/categories`
+    return this.httpClient.get<ProductCategory[]>(categoryUrl);
   }
 
 }

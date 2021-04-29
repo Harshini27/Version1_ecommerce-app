@@ -1,0 +1,19 @@
+<div class="row">
+ <form [formGroup]="form" class="form-horizontal hr" method="POST" action="#">
+    <h2>Add Category</h2>
+    <div class="form-group row">
+      <label class="control-lable col-sm-4" for="categoryName">Category_name :</label>
+      <div class="col-sm-8">
+          <input type="text" name="categoryName" required formControlName="categoryName" class="form-control"
+              placeholder="Enter the categoryName " />
+          <small  *ngIf="form.get('categoryName').dirty && form.get('categoryName').invalid"class="form-text text-danger">Enter Category_name</small>
+      </div>
+    </div>
+    <div class="form-group ">
+  
+      <div class="col-sm-offset-4 col-sm-8">
+          <button (click)="AddCategory()"  class="btn btn-primary btn-block">Add Category</button>
+      </div>
+  </div>
+  </form>
+</div>

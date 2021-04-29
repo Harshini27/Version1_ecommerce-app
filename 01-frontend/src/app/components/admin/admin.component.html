@@ -1,0 +1,41 @@
+<header class="header-desktop">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+        <div class="header-wrap">
+          <form class="form-header" onsubmit="return false;" method="GET">
+            <!-- <input class="au-input au-input-xl" type="text" name="search"
+              placeholder="Search for data ..." />
+            <button class="au-btn-submit" type="submit">
+              Search
+            </button> -->
+            &nbsp;&nbsp;&nbsp;&nbsp;<p class="display-name">Welcome {{emailstore}}!</p>
+           &nbsp;&nbsp;&nbsp;&nbsp;   
+           <button (click)="logout()" class="au-btn-submit" *ngIf="emailstore">logout</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+  <div class="row">
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-md-4">
+      <div class="col-sm-offset-4 col-sm-8">
+        <a routerLink="/addCategory" class="primary-btn" *ngIf="emailstore">Add Category</a>
+      </div>
+     </div>
+     <div class="col-md-4">
+      <div class="col-sm-offset-4 col-sm-8">
+        <a routerLink="/addProduct" class="primary-btn" *ngIf="emailstore">Add Product</a>
+     </div>
+    </div>
+    </div>
+
+  
+  
